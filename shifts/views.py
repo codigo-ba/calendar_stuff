@@ -1,3 +1,18 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
+def home(request):
+    return render(request, 'home.html')
+
+def signup(request):
+    if request.method == 'GET':
+        print('Enviando Formulario')
+    else:
+        print(request.POST)
+        print('OBTAINING RESULTS')
+        
+    return render(request, 'signup.html', {
+        'forms': UserCreationForm
+    })
+
